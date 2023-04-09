@@ -1,9 +1,13 @@
 'use strict'
 
-const path = require('path')
-const AutoLoad = require('@fastify/autoload')
+import path from 'path'
+import { fileURLToPath } from 'url'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
-module.exports = async function (fastify, opts) {
+import AutoLoad from '@fastify/autoload'
+
+export default async function (fastify, opts) {
 	// Place here your custom code!
 
 	// Do not touch the following lines
@@ -12,6 +16,7 @@ module.exports = async function (fastify, opts) {
 	// those should be support plugins that are reused
 	// through your application
 	fastify.register(AutoLoad, {
+		// eslint-disable-next-line no-undef
 		dir: path.join(__dirname, 'plugins'),
 		options: Object.assign({}, opts)
 	})
