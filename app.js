@@ -14,7 +14,6 @@ export default async function (fastify, opts) {
 	// those should be support plugins that are reused
 	// through your application
 	fastify.register(AutoLoad, {
-		// eslint-disable-next-line no-undef
 		dir: path.join(__dirname, 'plugins'),
 		options: Object.assign({}, opts)
 	})

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import fp from 'fastify-plugin'
 import dbConnector from '@fastify/postgres'
 

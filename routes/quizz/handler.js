@@ -20,6 +20,10 @@ const createQuizz = async ({ body }) => {
 			teams: { create: body.teams },
 			user_id: 1,
 			categories: { create: [] }
+		},
+		include: {
+			teams: true,
+			categories: true
 		}
 	})
 
