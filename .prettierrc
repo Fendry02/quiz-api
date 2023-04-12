@@ -1,9 +1,7 @@
 {
-  "useTabs": true,
   "singleQuote": true,
-  "trailingComma": "none",
+  "trailingComma": "all",
   "semi": false,
-  "printWidth": 100,
-  "plugins": [],
-  "pluginSearchDirs": ["."]
+  "printWidth": 120,
+  "tabWidth": 2
 }
