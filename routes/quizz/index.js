@@ -1,6 +1,8 @@
-import { schema } from './schemas.js'
-import { handler } from './handler.js'
+import { createQuizzSchema } from './schemas.js'
+import { createQuizzHandler } from './createQuizzHandler.js'
+import { getQuizzHandler } from './getQuizzHandler.js'
 
 export default async function (fastify) {
-  fastify.post('/', { schema }, handler)
+  fastify.post('/', { schema: createQuizzSchema }, createQuizzHandler)
+  fastify.get('/', getQuizzHandler)
 }

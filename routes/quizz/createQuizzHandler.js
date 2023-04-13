@@ -34,4 +34,4 @@ const toOutput = ({ result }) => {
   return result
 }
 
-export const handler = pipe(checkTeams, createQuizz, toOutput)
+export const createQuizzHandler = pipe(checkTeams, createQuizz, toOutput)

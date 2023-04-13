@@ -1,6 +1,6 @@
 import S from 'fluent-json-schema'
 
-export const schema = {
+export const createQuizzSchema = {
   body: S.object()
     .prop('name', S.string())
     .prop('teamCount', S.number().minimum(2).maximum(4))

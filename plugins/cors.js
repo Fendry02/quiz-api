@@ -3,7 +3,6 @@ import fp from 'fastify-plugin'
 
 export default fp(async function (fastify) {
   fastify.register(cors, {
-    origin: '*',
-    methods: ['GET', 'POST'],
+    origin: true,
   })
 })
