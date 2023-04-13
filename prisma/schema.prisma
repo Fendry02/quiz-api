@@ -17,10 +17,10 @@ model User {
   last_name   String?
   updatedAt   DateTime @updatedAt @default(now())
   createdAt   DateTime @default(now())
-  quizzes     Quizz[]
+  quizes      Quiz[]
 }
 
-model Quizz {
+model Quiz {
   id         Int    @id @default(autoincrement())
   name       String
   team_count Int
@@ -34,15 +34,15 @@ model Team {
   id         Int    @id @default(autoincrement())
   name       String
   members    String[]
-  quizz_id   Int
-  quizz      Quizz   @relation(fields: [quizz_id], references: [id])
+  quiz_id    Int
+  quiz       Quiz   @relation(fields: [quiz_id], references: [id])
 }
 
 model Category {
   id         Int    @id @default(autoincrement())
   name       String
-  quizz_id   Int
-  quizz      Quizz  @relation(fields: [quizz_id], references: [id])
+  quiz_id    Int
+  quiz       Quiz  @relation(fields: [quiz_id], references: [id])
 }
 
 model Question {

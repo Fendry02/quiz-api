@@ -12,8 +12,8 @@ const checkTeams = ({ body }) => {
   return { body }
 }
 
-const createQuizz = async ({ body }) => {
-  const result = await prisma.quizz.create({
+const createQuiz = async ({ body }) => {
+  const result = await prisma.quiz.create({
     data: {
       team_count: body.teamCount,
       name: body.name,
@@ -34,4 +34,4 @@ const toOutput = ({ result }) => {
   return result
 }
 
-export const createQuizzHandler = pipe(checkTeams, createQuizz, toOutput)
+export const createQuizHandler = pipe(checkTeams, createQuiz, toOutput)
