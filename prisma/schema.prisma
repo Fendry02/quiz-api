@@ -28,6 +28,8 @@ model Quiz {
   user       User   @relation(fields: [user_id], references: [id])
   categories Category[]
   teams      Team[]
+  updatedAt   DateTime @updatedAt @default(now())
+  createdAt   DateTime @default(now())
 }
 
 model Team {
@@ -36,6 +38,9 @@ model Team {
   members    String[]
   quiz_id    Int
   quiz       Quiz   @relation(fields: [quiz_id], references: [id])
+  results    Result[]
+  updatedAt   DateTime @updatedAt @default(now())
+  createdAt   DateTime @default(now())
 }
 
 model Category {
@@ -43,12 +48,28 @@ model Category {
   name       String
   quiz_id    Int
   quiz       Quiz  @relation(fields: [quiz_id], references: [id])
+  questions  Question[]
+  updatedAt   DateTime @updatedAt @default(now())
+  createdAt   DateTime @default(now())
 }
 
 model Question {
   id          Int    @id @default(autoincrement())
   label       String
   answer      String
-  information String
-  team        Int
+  information String?
+  result      Int?
+  category_id Int
+  category    Category @relation(fields: [category_id], references: [id])
+  updatedAt   DateTime @updatedAt @default(now())
+  createdAt   DateTime @default(now())
+}
+
+model Result {
+  id          Int    @id @default(autoincrement())
+  team_id     Int
+  point       Float
+  team        Team @relation(fields: [team_id], references: [id])
+  updatedAt   DateTime @updatedAt @default(now())
+  createdAt   DateTime @default(now())
 }
