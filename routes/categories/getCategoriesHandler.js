@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export const getCategoriesHandler = async ({ params }) => {
-  return await prisma.question.findMany({
+  return await prisma.category.findMany({
     where: {
-      id: Number(params.quizId),
+      quiz_id: Number(params.quizId),
     },
   })
 }

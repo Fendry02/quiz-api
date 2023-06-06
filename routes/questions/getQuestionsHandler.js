@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 export const getQuestionsHandler = async ({ params }) => {
   return await prisma.question.findMany({
     where: {
-      id: Number(params.categoryId),
+      category_id: Number(params.categoryId),
     },
   })
 }
