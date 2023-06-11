@@ -7,5 +7,16 @@ export const getQuestionsHandler = async ({ params }) => {
     where: {
       category_id: Number(params.categoryId),
     },
+    include: {
+      category: {
+        include: {
+          quiz: {
+            include: {
+              teams: true
+            }
+          }
+        }
+      },
+    } 
   })
 }
