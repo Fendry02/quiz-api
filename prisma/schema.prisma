@@ -21,25 +21,25 @@ model User {
 }
 
 model Quiz {
-  id         Int    @id @default(autoincrement())
-  name       String
-  user_id    Int
-  user       User   @relation(fields: [user_id], references: [id])
-  categories Category[]
-  teams      Team[]
+  id          Int    @id @default(autoincrement())
+  name        String
+  user_id     Int
+  user        User   @relation(fields: [user_id], references: [id])
+  categories  Category[]
+  teams       Team[]
   updatedAt   DateTime @updatedAt @default(now())
   createdAt   DateTime @default(now())
 }
 
 model Team {
   id         Int    @id @default(autoincrement())
-  label       String
+  label      String
   members    String[]
   quiz_id    Int
   quiz       Quiz   @relation(fields: [quiz_id], references: [id])
   results    Result[]
-  updatedAt   DateTime @updatedAt @default(now())
-  createdAt   DateTime @default(now())
+  updatedAt  DateTime @updatedAt @default(now())
+  createdAt  DateTime @default(now())
 }
 
 model Category {
@@ -48,8 +48,8 @@ model Category {
   quiz_id    Int
   quiz       Quiz  @relation(fields: [quiz_id], references: [id])
   questions  Question[]
-  updatedAt   DateTime @updatedAt @default(now())
-  createdAt   DateTime @default(now())
+  updatedAt  DateTime @updatedAt @default(now())
+  createdAt  DateTime @default(now())
 }
 
 model Question {
