@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '../../_base.js'
 
 export const createTeamsHandler = async ({ body }) => {
   const promises = body.teams.map(async (team) => {

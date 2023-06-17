@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '../../_base.js'
 
 export const getResultsHandler = async ({ body }) => {
   const results = await prisma.result.groupBy({

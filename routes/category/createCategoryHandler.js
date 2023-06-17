@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '../../_base.js'
 
 export const createCategoryHandler = async ({ body }) => {
   const quizId = Number(body.quiz_id)
