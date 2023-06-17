@@ -1,9 +1,9 @@
 import { prisma } from '../../_base.js'
 
 export const getQuestionHandler = async ({ params }) => {
+  const questionId = Number(params.questionId)
+
   return await prisma.question.findUnique({
-    where: {
-      id: Number(params.questionId),
-    },
+    where: { id: questionId },
   })
 }

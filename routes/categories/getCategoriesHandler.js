@@ -5,5 +5,12 @@ export const getCategoriesHandler = async ({ params }) => {
     where: {
       quiz_id: Number(params.quizId),
     },
+    include: {
+      questions: {
+        include: {
+          results: true,
+        },
+      },
+    },
   })
 }
